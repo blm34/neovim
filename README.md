@@ -19,6 +19,12 @@ To use this Neovim configuration, this repository should be cloned to:
 
 `<localleader>` is mapped to `\`
 
+### Config ###
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n | `<leader>L` | Open Lazy pluging manager | Lazy |
+
 ### Editing ###
 
 | Mode | Keymap | Action | Mnemonic |
