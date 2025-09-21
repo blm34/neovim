@@ -168,3 +168,23 @@ In the nvim-tree window, the following maps apply
 | n | `/` | Filter files based off input text | Search |
 | n | `<ESC>` | Clear filter | |
 | n | `q` | Close nvim-tree window | Quit |
+
+### Git ###
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n | `<leader>gs` | Open fugitive status window | Git status |
+| n | `<leader>gl` | Open fugitive log window | Git log |
+| n | `<leader>gd` | Open fugitive diff window | Git diff |
+| n | `<leader>gb` | Open fugitive blame window | Git blame |
+| n | `<leader>gg` | Open fugitive git bash in terminal window | |
+
+#### Fugitive ####
+
+The following keymaps apply when in a fugitive window
+
+| Mode | Keymap | Action |
+|------|--------|--------|
+| n | `q` | Close the window |
+| n | `g?` | Open help menu |
+
