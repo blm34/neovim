@@ -38,6 +38,11 @@ To use this Neovim configuration, this repository should be cloned to:
 | n | `go` | Add blank line below cursor |
 | n | `gO` | Add blank line above cursor |
 | n | `<leader>ut` | Toggle the undotree window | Undo tree |
+| n | `cs"'` | Change the surrounding quotes to single quotes | Change surrounding |
+| n | `ds'` | Delete the surrounding quotes | Delete surrounding |
+| n | `ysiw)` | Surround the current word with () | You surround|
+| n | `yss}` | Surround the entire line with {} | You surround |
+| v | `Sb` | Surround the selection with the brackets | Surround |
 
 ### Visual ###
 
