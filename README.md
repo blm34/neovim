@@ -110,6 +110,11 @@ To use this Neovim configuration, this repository should be cloned to:
 | n | `<leader>tf` | Focus the nvim-tree window, opening if required | Tree focus |
 | n | `<leader>tt` | Toggle the nvim-tree window | Tree toggle |
 | n | `<leader>to` | Focus the tree and move the cursor to the current file | Tree open |
+| n | `<leader>ha` | Add the current file to the harpoon list | Harpoon add |
+| n | `<leader>hr` | Remove the current file from the harpoon list | Harpoon remove |
+| n | `<leader>hh` | Open the harpoon list | |
+| n | `<leader>ht` | Open the harpoon window in telescope | Harpoon telescope |
+| n | `<leader>h1` | Open the nth file in the harpoon list (valid from 1 to 9) | |
 
 #### Telescope ####
 
