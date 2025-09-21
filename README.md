@@ -98,3 +98,25 @@ To use this Neovim configuration, this repository should be cloned to:
 | n | `<C-p>` | Previous hover | Previous |
 | n | `<C-n>` | Next hover | Next |
 
+### Files ###
+
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n | `<leader>sf` | Search file names with telescope | Search files |
+| n | `<leader>sc` | Search file contents with telescope | Search contents |
+| n | `<leader>sg` | Search git files with telescope | Search git |
+| n | `<leader>sb` | Search buffers with telescope | Search buffers |
+| n | `<leader>sh` | Search help tags with telescope | Search help |
+
+#### Telescope ####
+
+In a telescope search window the following maps apply
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n & i | `<CR>` | Open in current buffer | |
+| n | `s` | Open in horizontal split | Split |
+| n | `v` | Open in vertical split | Vertical |
+| n | `t` | Open in new tab | Tab |
+
