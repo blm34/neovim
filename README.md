@@ -67,3 +67,34 @@ To use this Neovim configuration, this repository should be cloned to:
 | n | `<CM-k>` | Increase window height |
 | t | `<ESC>` | Exit terminal mode (to normal mode) |
 
+### LSP ###
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n | `gd` | Go to definition | Go definition |
+| n | `<leader>rn` | Rename variable | Re name |
+| n | `<leader>ca` | Code action | Code action | 
+| n | `[d` | Go to previous diagnostic |
+| n | `]d` | Go to next diagnostic |
+| n | `<leader>D` | Toggle diagnostics |
+
+#### Completions ####
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| i | `<C-j>` | Select next in drop down | Down |
+| i | `<C-k>` | Select previous in drop down | Up |
+| i | `<C-y>` | Confirm selection (only required for snippets) | Yes |
+| i | `<C-e>` | Abort completion and close menu | Exit |
+| i | `<C-l>` | Jump to next input of snippet | Left |
+| i | `<C-h>` | Jump to previous input of snippet | Right |
+
+#### Hover ####
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n | `K` | Open hover | |
+| n | `gK` | Enter hover | |
+| n | `<C-p>` | Previous hover | Previous |
+| n | `<C-n>` | Next hover | Next |
+
