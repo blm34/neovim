@@ -178,6 +178,8 @@ In the nvim-tree window, the following maps apply
 | n | `<leader>gd` | Open fugitive diff window | Git diff |
 | n | `<leader>gb` | Open fugitive blame window | Git blame |
 | n | `<leader>gg` | Open fugitive git bash in terminal window | |
+| n | `gha` | Stage hunks in the following motion | Git hunk add |
+| n | `ghr` | Restore hunks in the following motion | Git hunk restore |
 
 #### Fugitive ####
 
