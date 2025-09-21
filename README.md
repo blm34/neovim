@@ -37,6 +37,7 @@ To use this Neovim configuration, this repository should be cloned to:
 | n | `<leader>s` | Global (in buffer) replace word under cursor | Substitute |
 | n | `go` | Add blank line below cursor |
 | n | `gO` | Add blank line above cursor |
+| n | `<leader>ut` | Toggle the undotree window | Undo tree |
 
 ### Visual ###
 
