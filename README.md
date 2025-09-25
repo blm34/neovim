@@ -43,6 +43,9 @@ To use this Neovim configuration, this repository should be cloned to:
 | n | `ysiw)` | Surround the current word with () | You surround|
 | n | `yss}` | Surround the entire line with {} | You surround |
 | v | `Sb` | Surround the selection with the brackets | Surround |
+| n | `gc` | Comment the following noun | Give comment |
+| n | `gcc` | Comment the current line | Give current comment |
+| n | `dgc` | Delete the comment block | |
 
 ### Visual ###
 
