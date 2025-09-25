@@ -52,6 +52,13 @@ To use this Neovim configuration, this repository should be cloned to:
 | Mode | Keymap | Action |
 |------|--------|--------|
 | n | `<ESC>` | Turn off highlight search |
+| n | `zc` | Close fold under cursor |
+| n | `zC` | Close all folds under cursor |
+| n | `zo` | Open fold under cursor |
+| n | `zO` | Open all folds under cursor |
+| n | `zR` | Open all folds |
+| n | `zM` | Close all folds |
+| n | `zK` | Peak folded lines under cursor |
 
 ### Quick Fix List ###
 
