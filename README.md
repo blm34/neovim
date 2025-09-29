@@ -82,6 +82,8 @@ To use this Neovim configuration, this repository should be cloned to:
 | n | `<CM-j>` | Decrease window height |
 | n | `<CM-k>` | Increase window height |
 | t | `<ESC>` | Exit terminal mode (to normal mode) |
+| n | `<leader>1` | Open terminal 1 (valid for 1-9) |
+| n | `<Tab>` | Toggle all terminals |
 
 ### LSP ###
 

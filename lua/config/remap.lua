@@ -51,6 +51,14 @@ vim.keymap.set("n", "<CM-l>", function() vim.cmd("vertical resize +1") end)
 vim.keymap.set("n", "<CM-j>", function() vim.cmd("resize -1") end)
 vim.keymap.set("n", "<CM-k>", function() vim.cmd("resize +1") end)
 
+-- Terminal commands
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+vim.keymap.set("t", "<M-h>", "<C-\\><C-n><C-w>h")
+vim.keymap.set("t", "<M-j>", "<C-\\><C-n><C-w>j")
+vim.keymap.set("t", "<M-k>", "<C-\\><C-n><C-w>k")
+vim.keymap.set("t", "<M-l>", "<C-\\><C-n><C-w>l")
+
 -- add blank lines in normal mode
 vim.keymap.set("n", "go", "o<ESC>k")
 vim.keymap.set("n", "gO", "O<ESC>j")

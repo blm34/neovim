@@ -1,3 +1,19 @@
+-- Determine name of terminal
+local function get_terminal_name()
+    local terms = require("toggleterm.terminal").get_all()
+    local buf = vim.api.nvim_get_current_buf()
+
+    for _, term in pairs(terms) do
+        if term.bufnr == buf then
+            if term.id < 10 then
+                return "Terminal " .. term.id
+            else
+                return term.display_name
+            end
+        end
+    end
+end
+
 -- Show git branch and worktree
 
 local branch_cache = {}
@@ -52,14 +68,14 @@ local function branch_and_worktree()
 
     local result = " " .. branch
     if wt ~= "" then
-        result = result  .. " ( " .. wt .. ")"
+        result = result .. " ( " .. wt .. ")"
     end
     branch_cache[bufnr] = result
     return result
 end
 
 -- Clear cache on buffer enter / write / git events
-vim.api.nvim_create_autocmd({"BufEnter","BufWritePost"}, {
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
     callback = function()
         local bufnr = vim.api.nvim_get_current_buf()
         branch_cache[bufnr] = nil
@@ -100,8 +116,8 @@ local function harpoon_statusline()
 
     for i, item in ipairs(list.items) do
         if vim.fn.fnamemodify(item.value, ":p") == buf_path then
-        idx = i
-        break
+            idx = i
+            break
         end
     end
 
@@ -115,7 +131,7 @@ end
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function ()
+    config = function()
         require("lualine").setup({
             options = {
                 theme = "kanagawa",
@@ -129,15 +145,28 @@ return {
                     "mode"
                 },
                 lualine_b = {
-                    branch_and_worktree,
-                    "diff"
+                    {
+                        branch_and_worktree,
+                        "diff",
+                        cond = function() return vim.bo.buftype ~= "terminal" end
+                    }
                 },
                 lualine_c = {
-                    "filename",
-                    harpoon_statusline
+                    {
+                        "filename",
+                        cond = function() return vim.bo.buftype ~= "terminal" end
+                    },
+                    {
+                        harpoon_statusline,
+                        cond = function() return vim.bo.buftype ~= "terminal" end
+                    },
+                    {
+                        get_terminal_name,
+                        cond = function() return vim.bo.buftype == "terminal" end
+                    }
                 },
                 lualine_x = {
-                    {"diagnostics", sources = { 'nvim_lsp' } },
+                    { "diagnostics", sources = { 'nvim_lsp' } },
                     lsp_client,
                 },
                 lualine_y = {
@@ -150,7 +179,16 @@ return {
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = { "filename" },
+                lualine_c = {
+                    {
+                        "filename",
+                        cond = function() return vim.bo.buftype ~= "terminal" end,
+                    },
+                    {
+                        get_terminal_name,
+                        cond = function() return vim.bo.buftype == "terminal" end,
+                    }
+                },
                 lualine_x = { "location" },
                 lualine_y = {},
                 lualine_z = {},
