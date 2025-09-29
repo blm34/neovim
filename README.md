@@ -95,6 +95,7 @@ To use this Neovim configuration, this repository should be cloned to:
 | n | `[d` | Go to previous diagnostic |
 | n | `]d` | Go to next diagnostic |
 | n | `<leader>D` | Toggle diagnostics |
+| n | `<leader>v` | Open vista window for code structure |
 
 #### Completions ####
 
