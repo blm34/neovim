@@ -6,6 +6,7 @@ require("mason-lspconfig").setup({
         "lua_ls",       -- Lua
         "bashls",       -- Bash
         "marksman",     -- Markdown
+        "texlab",       -- Latex
     },
     automatic_installation = true,
 })
