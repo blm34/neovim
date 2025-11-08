@@ -214,3 +214,13 @@ The following keymaps apply when in a fugitive window
 | n | `q` | Close the window |
 | n | `g?` | Open help menu |
 
+### Python ###
+
+The following are keymaps set to only work within a python file.
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n | `<leader>RR` | Run the current python file | Run |
+| n | `<leader>RF` | Run the python file whose file path is in a chosen register | Run file |
+| n | `<leader>RS` | Save the file path of the current file to a chosen register | Run save |
+
