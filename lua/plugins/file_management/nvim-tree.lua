@@ -252,6 +252,9 @@ return {
                     padding = 1,
                 },
             },
+            filters = {
+                custom = { "__pycache__", },
+            },
             renderer = {
                 root_folder_label = function(path)
                     return "  " .. vim.fn.fnamemodify(path, ":t")
