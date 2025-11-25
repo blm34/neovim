@@ -13,6 +13,11 @@ To use this Neovim configuration, this repository should be cloned to:
 * [git](https://git-scm.com/downloads)
 * [Ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
 
+### Python ###
+
+To debug python code, a virtual environment must exist at `~/.virtualenvs/debugpy`
+which has debugpy installed into it.
+
 ## Keymaps ##
 
 `<leader>` is mapped to `<space>`
@@ -223,4 +228,20 @@ The following are keymaps set to only work within a python file.
 | n | `<leader>RR` | Run the current python file | Run |
 | n | `<leader>RF` | Run the python file whose file path is in a chosen register | Run file |
 | n | `<leader>RS` | Save the file path of the current file to a chosen register | Run save |
+
+### Debugging ###
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n | `<leader>dc` | Continue the debugger or start a new debug session | Debug Continue |
+| n | `<leader>db` | Toggle a breakpoint | Debug Breakpoint |
+| n | `<leader>dB` | Set a conditional breakpoint | Debug Breakpoint |
+| n | `<leader>dL` | Set a log point | Debug Logpoint |
+| n | `<leader>dq` | Terminate a debug session | Debug Quit |
+| n | `<leader>dk` | Open the debug hover menu | |
+| n | `<leader>dr` | Open the debug repl | Debug Repl |
+| n | `<leader>dl` | Run the last debug session | Debug Last |
+| n | `<leader>do` | Step over a line in a debug session | Debug Over |
+| n | `<leader>di` | Step into a scope in a debug session | Debug Into |
+| n | `<leader>dO` | Step out of a scope in a debug session | Debug Out |
 
