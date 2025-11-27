@@ -271,12 +271,12 @@ return {
             on_attach = on_attach
         })
 
-        vim.keymap.set("n", "<leader>tf", api.tree.open)
-        vim.keymap.set("n", "<leader>tt", function()
+        vim.keymap.set("n", "<leader>ff", api.tree.open)
+        vim.keymap.set("n", "<leader>ft", function()
             api.tree.toggle({ focus = false })
         end
         )
-        vim.keymap.set("n", "<leader>to", function()
+        vim.keymap.set("n", "<leader>fc", function()
             api.tree.open({ find_file = true })
         end
         )

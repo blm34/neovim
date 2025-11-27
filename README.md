@@ -131,9 +131,9 @@ which has debugpy installed into it.
 | n | `<leader>sg` | Search git files with telescope | Search git |
 | n | `<leader>sb` | Search buffers with telescope | Search buffers |
 | n | `<leader>sh` | Search help tags with telescope | Search help |
-| n | `<leader>tf` | Focus the nvim-tree window, opening if required | Tree focus |
-| n | `<leader>tt` | Toggle the nvim-tree window | Tree toggle |
-| n | `<leader>to` | Focus the tree and move the cursor to the current file | Tree open |
+| n | `<leader>ff` | Focus the nvim-tree window, opening if required | Files focus |
+| n | `<leader>ft` | Toggle the nvim-tree window | Files toggle |
+| n | `<leader>fc` | Focus the tree and move the cursor to the current file | Files current |
 | n | `<leader>ha` | Add the current file to the harpoon list | Harpoon add |
 | n | `<leader>hr` | Remove the current file from the harpoon list | Harpoon remove |
 | n | `<leader>hh` | Open the harpoon list | |
