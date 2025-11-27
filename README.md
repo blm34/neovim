@@ -244,4 +244,18 @@ The following are keymaps set to only work within a python file.
 | n | `<leader>do` | Step over a line in a debug session | Debug Over |
 | n | `<leader>di` | Step into a scope in a debug session | Debug Into |
 | n | `<leader>dO` | Step out of a scope in a debug session | Debug Out |
+| n | `<leader>dt` | Run the closest test in debug mode | Debug Test |
+
+### Tests ###
+
+| Mode | Keymap | Action | Mnemonic |
+|------|--------|--------|----------|
+| n | `<leader>tt` | Run the closest test | Test Test |
+| n | `<leader>tf` | Run the all tests in file | Test File |
+| n | `<leader>ta` | Run the all tests in suite | Test All |
+| n | `<leader>tq` | Stop the current test run | Test Quit |
+| n | `<leader>ts` | Open the test summary panel | Test Summary |
+| n | `<leader>to` | Open the closest test's output | Test Output |
+| n | `<leader>tO` | Toggle the output pannel | Test Output |
+| n | `<leader>tf` | Jump to the next failing test | Test Failed |
 
