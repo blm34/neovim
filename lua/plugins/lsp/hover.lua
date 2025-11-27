@@ -1,8 +1,10 @@
 return {
     "lewis6991/hover.nvim",
     config = function()
-        require("hover").config({
+        local hover = require("hover")
+        hover.config({
             providers = {
+                'hover.providers.diagnostic',
                 'hover.providers.lsp',
                 'hover.providers.dap',
                 'hover.providers.man',
@@ -11,19 +13,20 @@ return {
         })
 
         vim.keymap.set('n', 'K', function()
-            require('hover').open()
+            hover.open()
         end, { desc = 'hover.nvim (open)' })
 
         vim.keymap.set('n', 'gK', function()
-            require('hover').enter()
+            hover.enter()
         end, { desc = 'hover.nvim (enter)' })
 
+        -- ToDo: Next and previous don't work - why?
         vim.keymap.set('n', '<C-p>', function()
-            require('hover').hover_switch('previous')
+            hover.switch('previous')
         end, { desc = 'hover.nvim (previous source)' })
 
         vim.keymap.set('n', '<C-n>', function()
-            require('hover').hover_switch('next')
+            hover.switch('next')
         end, { desc = 'hover.nvim (next source)' })
     end
 }
