@@ -47,5 +47,23 @@ return {
         config.settings = config.settings or {}
         config.settings.python = config.settings.python or {}
         config.settings.python.pythonPath = get_python_path(config.root_dir)
-    end
+    end,
+
+    settings = {
+        basedpyright = {
+            analysis = {
+                typeCheckingMode = "standard",
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly",
+
+                -- Disable pyright-style lint rules
+                reportUnusedVariable = "none",
+                reportUnusedImport = "none",
+                reportUnusedFunction = "none",
+                reportUnusedClass = "none",
+                reportUnusedParameter = "none",
+                reportGeneralTypeIssues = true,
+            }
+        }
+    }
 }

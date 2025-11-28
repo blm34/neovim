@@ -3,6 +3,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
         "basedpyright", -- Python
+        "ruff",         -- Python linting
         "lua_ls",       -- Lua
         "bashls",       -- Bash
         "marksman",     -- Markdown
@@ -16,5 +17,7 @@ require("lsp.diagnostics")
 
 vim.lsp.enable({
     'basedpyright',
+    'ruff',
     'lua_ls',
+    'texlab',
 })
