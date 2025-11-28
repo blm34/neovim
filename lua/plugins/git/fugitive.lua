@@ -15,21 +15,6 @@ local function resize_status_win(buf)
     end
 end
 
-local uname = vim.loop.os_uname().sysname
-local is_windows = (vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 or uname == "Windows_NT")
-
--- Choose shell for git
-local function run_git_bash()
-    if is_windows then
-        return function(term)
-            term:send("git bash")
-        end
-    else
-        return function(term)
-        end
-    end
-end
-
 return {
     'tpope/vim-fugitive',
     config = function()
@@ -92,25 +77,6 @@ return {
 
             vim.api.nvim_set_current_win(file_win)
         end)
-
-        -- Make a dedicated git terminal
-        local Terminal = require("toggleterm.terminal").Terminal
-        local git_term
-
-        -- Git command line
-        vim.keymap.set("n", "<leader>gg", function()
-            if not git_term then
-                git_term = Terminal:new({
-                    id = 99,
-                    display_name = "Git Terminal",
-                    direction = "horizontal",
-                    hidden = false,
-                    dir = "git_dir",
-                    on_open = run_git_bash(),
-                })
-            end
-            git_term:toggle()
-        end, { noremap = true, silent = true })
 
         -- Auto cmd to resize status window
         vim.api.nvim_create_autocmd({ "BufWinEnter", "TextChanged", "TextChangedI" }, {
