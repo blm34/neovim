@@ -8,10 +8,9 @@ return {
         vim.o.foldenable = true
         vim.opt.fillchars = {
             fold = ' ',
-            foldclose = '',
-            foldopen = '',
+            foldclose = '',
+            foldopen = '',
             foldsep = ' ',
-            -- foldinner = ' ',
         }
 
         vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
