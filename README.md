@@ -12,6 +12,7 @@ To use this Neovim configuration, this repository should be cloned to:
 * [Neovim](https://neovim.io)
 * [git](https://git-scm.com/downloads)
 * [Ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
+* [LazyGit](https://github.com/jesseduffield/lazygit)
 
 ### Python ###
 
@@ -202,11 +203,11 @@ In the nvim-tree window, the following maps apply
 
 | Mode | Keymap | Action | Mnemonic |
 |------|--------|--------|----------|
+| n | `<leader>gg` | Open LazyGit | |
 | n | `<leader>gs` | Open fugitive status window | Git status |
 | n | `<leader>gl` | Open fugitive log window | Git log |
 | n | `<leader>gd` | Open fugitive diff window | Git diff |
 | n | `<leader>gb` | Open fugitive blame window | Git blame |
-| n | `<leader>gg` | Open fugitive git bash in terminal window | |
 | n | `gha` | Stage hunks in the following motion | Git hunk add |
 | n | `ghr` | Restore hunks in the following motion | Git hunk restore |
 
