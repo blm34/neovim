@@ -1,5 +1,6 @@
 return {
     "liuchengxu/vista.vim",
+    lazy = true,
     config = function()
         vim.g.vista_default_executive = "nvim_lsp"
         vim.keymap.set("n", "<leader>v", function()

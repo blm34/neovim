@@ -17,6 +17,7 @@ end
 
 return {
     'tpope/vim-fugitive',
+    lazy = true,
     config = function()
         local status_buf = nil
         local log_buf = nil

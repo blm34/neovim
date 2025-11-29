@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "TextChanged", "TextChangedI" }, {
 
 return {
     'mbbill/undotree',
+    lazy = true,
     config = function()
         vim.opt.undofile = true
         vim.opt.undodir = { vim.fn.stdpath("data") .. "/undo" }
