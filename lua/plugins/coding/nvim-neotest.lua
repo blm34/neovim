@@ -52,7 +52,7 @@ return {
             desc = "Toggle output panel",
         },
         {
-            "<leader>tf",
+            "<leader>tF",
             function() require("neotest").jump.next({ status = "failed" }) end,
             desc = "Jump to failing test",
         },
