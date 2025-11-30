@@ -29,7 +29,7 @@ which has debugpy installed into it.
 
 | Mode | Keymap | Action | Mnemonic |
 |------|--------|--------|----------|
-| n | `<leader>L` | Open Lazy pluging manager | Lazy |
+| n | `<leader>L` | Open Lazy plugin manager | Lazy |
 | n | `<leader>M` | Open Mason manager | Mason |
 
 ### Editing ###
