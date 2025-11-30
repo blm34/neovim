@@ -52,6 +52,7 @@ return {
     settings = {
         basedpyright = {
             analysis = {
+                extraPaths = { "./src" },
                 typeCheckingMode = "standard",
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly",
