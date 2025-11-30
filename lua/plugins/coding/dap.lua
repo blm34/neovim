@@ -1,3 +1,14 @@
+local function get_python_path()
+    local uname = vim.loop.os_uname().sysname
+    local is_windows = (vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 or uname == "Windows_NT")
+    local mason_path = vim.fn.stdpath("data")
+    if is_windows then
+        return mason_path .. "\\mason\\packages\\debugpy\\venv\\Scripts\\python.exe"
+    else
+        return mason_path .. "/mason/packages/debugpy/venv/bin/python"
+    end
+end
+
 return {
     -- Core DAP
     {
@@ -11,6 +22,27 @@ return {
             local dap = require("dap")
             local dapui = require("dapui")
             local widgets = require("dap.ui.widgets")
+
+            dap.adapters.python = {
+                type = "executable",
+                command = get_python_path(),
+                args = { "-m", "debugpy.adapter" },
+                options = {
+                    detached = false,
+                },
+            }
+
+            dap.configurations.python = {
+                {
+                    type = "python",
+                    request = "launch",
+                    name = "Launch file",
+                    program = "${file}",
+                    pythonPath = get_python_path,
+                    console = "integratedTerminal",
+                    justMyCode = false,
+                }
+            }
 
             -- Breakpoint sign definitions
             vim.fn.sign_define("DapBreakpoint", { text = '', texthl = 'DiagnosticError' })
@@ -76,37 +108,6 @@ return {
                 all_references = false,
                 virt_text_pos = 'eol',
             })
-        end,
-    },
-
-    -- Python adapter (debugpy)
-    {
-        "mfussenegger/nvim-dap-python",
-        ft = "python",
-        dependencies = { "mfussenegger/nvim-dap" },
-        config = function()
-            local dap_python = require("dap-python")
-
-            local python_path
-            if vim.loop.os_uname().version:match("Windows") then
-                python_path = os.getenv("USERPROFILE") .. "\\.virtualenvs\\debugpy\\Scripts\\python.exe"
-            else
-                python_path = vim.fn.expand("~/.virtualenvs/debugpy/bin/python")
-            end
-
-            dap_python.setup(python_path)
-            dap_python.test_runner = "pytest"
-
-            local dap = require("dap")
-            dap.configurations.python = {
-                {
-                    type = "python",
-                    request = "launch",
-                    name = "Launch current file",
-                    program = "${file}",
-                    console = "integratedTerminal",
-                }
-            }
         end,
     },
 }

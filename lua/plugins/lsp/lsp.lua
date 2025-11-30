@@ -1,6 +1,24 @@
 return {
-    -- Core LSP support
-    "neovim/nvim-lspconfig",             -- LSP client
-    "williamboman/mason.nvim",           -- Install/manage LSP servers
-    "williamboman/mason-lspconfig.nvim", -- Mason to lspconfig bridge
+    {
+        "neovim/nvim-lspconfig", -- LSP client
+    },
+    {
+        "williamboman/mason-lspconfig.nvim", -- Mason to lspconfig bridge
+        dependencies = {
+            "williamboman/mason.nvim",
+        },
+        config = function()
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "basedpyright", -- Python
+                    "ruff",         -- Python linting
+                    "lua_ls",       -- Lua
+                    "bashls",       -- Bash
+                    "marksman",     -- Markdown
+                    "texlab",       -- Latex
+                },
+                automatic_installation = true,
+            })
+        end,
+    },
 }
