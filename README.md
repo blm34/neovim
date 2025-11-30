@@ -189,11 +189,6 @@ In the nvim-tree window, the following maps apply
 | n | `th` | Toggle show hidden files | Toggle hidden |
 | n | `tgi` | Toggle show git ignored files | Toggle git ignore |
 | n | `tgc` | Toggle show clean git files | Toggle git clean |
-| n | `gs` | Stage file under cursor | Git stage |
-| n | `gu` | Unstage file under cursor | Git unstage |
-| n | `g-` | Toggle staging of file under cursor | |
-| n | `gc` | Make a commit | Git commit |
-| n | `gb` | Open git blame in a new tab | Git blame |
 | n | `?` | Open help menu to show keybinds | |
 | n | `i` | Show file info | Info |
 | n | `/` | Filter files based off input text | Search |

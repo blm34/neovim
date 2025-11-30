@@ -147,57 +147,6 @@ local function on_attach(bufnr)
     vim.keymap.set("n", "tgi", api.tree.toggle_gitignore_filter, { buffer = bufnr, desc = "Toggle: git ignored files" })
     vim.keymap.set("n", "tgc", api.tree.toggle_git_clean_filter, { buffer = bufnr, desc = "Toggle: git clean files" })
 
-    -- git
-    vim.keymap.set("n", "gs", function()
-        local path = get_node_path()
-        if path then
-            vim.fn.system({ "git", "add", path })
-            vim.notify("Staged " .. path)
-            api.tree.reload()
-        end
-    end, { buffer = bufnr, desc = "Git: stage", noremap = true, silent = true })
-
-    vim.keymap.set("n", "gu", function()
-        local path = get_node_path()
-        if path then
-            vim.fn.system({ "git", "restore", "--staged", path })
-            vim.notify("Unstaged " .. path)
-            api.tree.reload()
-        end
-    end, { buffer = bufnr, desc = "Git: unstage", noremap = true, silent = true })
-
-    vim.keymap.set("n", "g-", function()
-        local path = get_node_path()
-        if not path then return end
-        local status = vim.fn.systemlist({ "git", "status", "--porcelain", path })[1]
-        if status and (status:match("&%s*M") or status:match("^%s*%g?%?")) then
-            vim.fn.system({ "git", "add", path })
-            vim.notify("Staged " .. path)
-        else
-            vim.fn.system({ "git", "restore", "--staged", path })
-            vim.notify("Unstaged " .. path)
-        end
-        api.tree.reload()
-    end, { buffer = bufnr, desc = "Git: toggle stage", noremap = true, silent = true })
-
-    vim.keymap.set("n", "gc", function()
-        vim.cmd("tab Git commit")
-    end, { buffer = bufnr, desc = "Git: commit", noremap = true, silent = true })
-
-    vim.keymap.set("n", "gb", function()
-        local path = get_node_path()
-        if not path then return nil end
-        vim.cmd("tabnew " .. vim.fn.fnameescape(path))
-        vim.cmd("Git blame ")
-        vim.schedule(function()
-            local wins = vim.api.nvim_tabpage_list_wins(0)
-            for _, win in ipairs(wins) do
-                local buf = vim.api.nvim_win_get_buf(win)
-                vim.keymap.set("n", "q", "<Cmd>tabclose<CR>", { buffer = buf, silent = true })
-            end
-        end)
-    end, { buffer = bufnr, desc = "Git: blame", noremap = true, silent = true })
-
     -- misc
     vim.keymap.set("n", "?", api.tree.toggle_help, { buffer = bufnr, desc = "Misc: Toggle Help" })
     vim.keymap.set("n", "i", api.node.show_info_popup, { buffer = bufnr, desc = "Misc: Show info" })
