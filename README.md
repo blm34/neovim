@@ -41,7 +41,6 @@ which has debugpy installed into it.
 | n & x | `<leader>p` | Paste from system clipboard | Paste |
 | n & v | `<leader>y` | Copy to system clipboard | Yank |
 | n & v | `<leader>d` | Delete - don't write to the unnamed register | Delete |
-| n | `<leader>s` | Global (in buffer) replace word under cursor | Substitute |
 | n | `go` | Add blank line below cursor |
 | n | `gO` | Add blank line above cursor |
 | n | `<leader>ut` | Toggle the undotree window | Undo tree |
