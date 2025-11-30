@@ -1,8 +1,8 @@
-local conf = require('telescope.config').values
-local themes = require('telescope.themes')
-
 -- helper function to use telescope on harpoon list.
 local function toggle_telescope(harpoon_list)
+    local conf = require('telescope.config').values
+    local themes = require('telescope.themes')
+
     local file_paths = {}
     for _, item in ipairs(harpoon_list.items) do
         table.insert(file_paths, item.value)
@@ -24,6 +24,7 @@ end
 return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim"
     },

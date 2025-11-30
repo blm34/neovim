@@ -157,6 +157,7 @@ end
 
 return {
     "nvim-tree/nvim-tree.lua",
+    lazy = false,
     config = function()
         local api = require("nvim-tree.api")
         require("nvim-tree").setup({

@@ -1,6 +1,7 @@
 return {
     "nvim-mini/mini.animate",
     version = "*",
+    event = "BufEnter",
     config = function()
         local animate = require("mini.animate")
 

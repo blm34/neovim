@@ -1,7 +1,8 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
+    event = "BufEnter",
     main = "ibl",
-    config = function ()
+    config = function()
         require("ibl").setup({
             indent = {
                 char = "│",

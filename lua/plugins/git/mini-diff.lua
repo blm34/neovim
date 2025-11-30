@@ -1,6 +1,7 @@
 return {
     "nvim-mini/mini.diff",
     version = "*",
+    event = "BufEnter",
     config = function()
         require("mini.diff").setup({
             view = {

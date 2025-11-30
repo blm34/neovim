@@ -1,5 +1,6 @@
 return {
     "nvim-mini/mini.jump",
+    event = "BufEnter",
     version = "*",
     config = function()
         require("mini.jump").setup({

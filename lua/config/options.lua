@@ -31,3 +31,11 @@ vim.api.nvim_create_autocmd(
     { "FocusGained", "BufEnter" },
     { command = "checktime" }
 )
+
+-- Set up undo file
+vim.opt.undofile = true
+vim.opt.undodir = { vim.fn.stdpath("data") .. "/undo" }
+
+if vim.fn.isdirectory(vim.opt.undodir:get()[1]) == 0 then
+    vim.fn.mkdir(vim.opt.undodir:get()[1], "p")
+end

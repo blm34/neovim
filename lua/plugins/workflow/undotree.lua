@@ -19,27 +19,29 @@ local function resize_undotree(buf)
     end
 end
 
-vim.api.nvim_create_autocmd({ "BufWinEnter", "TextChanged", "TextChangedI" }, {
-    callback = function(args)
-        resize_undotree(args.buf)
-    end,
-})
-
 return {
     'mbbill/undotree',
-    config = function()
-        vim.opt.undofile = true
-        vim.opt.undodir = { vim.fn.stdpath("data") .. "/undo" }
+    lazy = true,
+    keys = {
+        {
+            "<leader>ut",
+            function() vim.cmd.UndotreeToggle() end,
+            desc = "Open undotree",
+        },
+    },
 
-        if vim.fn.isdirectory(vim.opt.undodir:get()[1]) == 0 then
-            vim.fn.mkdir(vim.opt.undodir:get()[1], "p")
-        end
-
+    init = function()
         vim.g.undotree_WindowLayout = 2
         vim.g.undotree_SetFocusWhenToggle = 1
         vim.g.undotree_DiffpanelHeight = 15
         vim.g.undotree_DiffAutoOpen = 0
+    end,
 
-        vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
+    config = function()
+        vim.api.nvim_create_autocmd({ "BufWinEnter", "TextChanged", "TextChangedI" }, {
+            callback = function(args)
+                resize_undotree(args.buf)
+            end,
+        })
     end
 }

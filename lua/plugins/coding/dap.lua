@@ -18,10 +18,77 @@ return {
             "nvim-neotest/nvim-nio",
             "rcarriga/nvim-dap-ui",
         },
+        keys = {
+            {
+                "<leader>dc",
+                function() require("dap").continue() end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>db",
+                function() require("dap").toggle_breakpoint() end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>dB",
+                function() require("dap").set_breakpoint(vim.fn.input("Condition: ")) end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>dL",
+                function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log: ")) end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>dq",
+                function() require("dap").terminate() end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>dk",
+                function() require("dap.ui.widgets").hover() end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>dr",
+                function() require("dap").repl_open() end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>dl",
+                function() require("dap").run_last() end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>do",
+                function() require("dap").step_over() end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>di",
+                function() require("dap").step_into() end,
+                noremap = true,
+                silent = true,
+            },
+            {
+                "<leader>dO",
+                function() require("dap").step_out() end,
+                noremap = true,
+                silent = true,
+            },
+        },
         config = function()
             local dap = require("dap")
             local dapui = require("dapui")
-            local widgets = require("dap.ui.widgets")
 
             dap.adapters.python = {
                 type = "executable",
@@ -64,21 +131,6 @@ return {
             dap.listeners.before.event_exited.dapui_config = function()
                 dapui.close()
             end
-
-            -- Keymaps
-            local opts = { noremap = true, silent = true }
-
-            vim.keymap.set("n", "<leader>dc", function() dap.continue() end, opts)
-            vim.keymap.set("n", "<leader>db", function() dap.toggle_breakpoint() end, opts)
-            vim.keymap.set("n", "<leader>dB", function() dap.set_breakpoint(vim.fn.input("Condition: ")) end, opts)
-            vim.keymap.set("n", "<leader>dL", function() dap.set_breakpoint(nil, nil, vim.fn.input("Log: ")) end, opts)
-            vim.keymap.set("n", "<leader>dq", function() dap.terminate() end, opts)
-            vim.keymap.set("n", "<leader>dk", function() widgets.hover() end, opts)
-            vim.keymap.set("n", "<leader>dr", function() dap.repl_open() end, opts)
-            vim.keymap.set("n", "<leader>dl", function() dap.run_last() end, opts)
-            vim.keymap.set("n", "<leader>do", function() dap.step_over() end, opts)
-            vim.keymap.set("n", "<leader>di", function() dap.step_into() end, opts)
-            vim.keymap.set("n", "<leader>dO", function() dap.step_out() end, opts)
         end,
     },
 
@@ -86,6 +138,7 @@ return {
     {
         "rcarriga/nvim-dap-ui",
         dependencies = { "mfussenegger/nvim-dap" },
+        lazy = true,
         config = function()
             local dapui = require("dapui")
             dapui.setup({})
@@ -99,6 +152,7 @@ return {
     {
         "theHamsta/nvim-dap-virtual-text",
         dependencies = { "mfussenegger/nvim-dap" },
+        lazy = true,
         config = function()
             require("nvim-dap-virtual-text").setup({
                 highlight_changed_variables = true,

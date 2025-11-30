@@ -1,7 +1,6 @@
 local uname = vim.loop.os_uname().sysname
 local is_windows = (vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 or uname == "Windows_NT")
 
-
 if is_windows then
     local powershell_options = {
         shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
@@ -20,6 +19,7 @@ end
 
 return {
     "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
     version = "*",
     config = function()
         require("toggleterm").setup({
