@@ -199,6 +199,7 @@ In the nvim-tree window, the following maps apply
 | Mode | Keymap | Action | Mnemonic |
 |------|--------|--------|----------|
 | n | `<leader>gg` | Open LazyGit | |
+| n | `<leader>gb` | Toggle git blame | Git Blame |
 | n | `gha` | Stage hunks in the following motion | Git hunk add |
 | n | `ghr` | Restore hunks in the following motion | Git hunk restore |
 
