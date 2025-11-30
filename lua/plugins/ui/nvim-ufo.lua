@@ -12,7 +12,6 @@ return {
             foldclose = '',
             foldopen = '',
             foldsep = ' ',
-            -- foldinner = ' ',
         }
 
         vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
