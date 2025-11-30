@@ -23,6 +23,7 @@ end
 
 return {
     "ThePrimeagen/harpoon",
+    lazy = true,
     branch = "harpoon2",
     event = "VeryLazy",
     dependencies = {
@@ -68,4 +69,3 @@ return {
         end
     end
 }
-
