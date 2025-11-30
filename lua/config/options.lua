@@ -24,3 +24,10 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 100
 
 vim.opt.colorcolumn = "80"
+
+-- Update buffers if changed and not modified
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd(
+    { "FocusGained", "BufEnter" },
+    { command = "checktime" }
+)
